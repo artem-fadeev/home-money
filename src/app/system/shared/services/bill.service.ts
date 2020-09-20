@@ -8,7 +8,7 @@ import {BaseApi} from '../../../shared/core/base-api';
 export class BillService {
   constructor(private httpClient: HttpClient) {}
 
-  getBill(): Observable<Bill> {
+  getBill(): Observable<any> {
     return this.httpClient.get(BaseApi.getUrl('bill'));
   }
 

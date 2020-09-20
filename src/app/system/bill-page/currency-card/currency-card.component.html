@@ -17,7 +17,7 @@
           <tr *ngFor="let c of currencies">
             <td>{{c}}</td>
             <td>{{currency.Valute[c].Value | number: '1.2-2'}}</td>
-            <td>{{currency.Date | date}}</td>
+            <td>{{currency.Date | date:'dd.MM.yyyy'}}</td>
           </tr>
           </tbody>
         </table>
