@@ -4,18 +4,23 @@
   </h3>
 </div>
 
-<section class="section">
+<section class="section text-center" *ngIf="!isLoaded">Loading...</section>
+
+<section class="section" *ngIf="isLoaded">
   <div class="row">
     <div class="col-md-6">
       <my-add-event></my-add-event>
     </div>
     <div class="col-md-6">
-      <my-add-category></my-add-category>
+      <my-add-category
+        (onCategoryAdd)="newCategoryAdded($event)"></my-add-category>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <my-edit-category></my-edit-category>
+      <my-edit-category
+        [categories]="categories"
+        (onCategoryEdit)="categoryWasEdited($event)"></my-edit-category>
     </div>
   </div>
 </section>
