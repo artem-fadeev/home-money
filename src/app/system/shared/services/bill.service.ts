@@ -15,4 +15,8 @@ export class BillService {
   getCurrency(): Observable<any> {
     return this.httpClient.get('https://www.cbr-xml-daily.ru/daily_json.js');
   }
+
+  updateBill(bill: Bill): Observable<any> {
+    return this.httpClient.put(BaseApi.getUrl('bill'), bill);
+  }
 }
