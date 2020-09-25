@@ -18,6 +18,10 @@ import { AddCategoryComponent } from './records-page/add-category/add-category.c
 import { EditCategoryComponent } from './records-page/edit-category/edit-category.component';
 import {CategoriesService} from './shared/services/categories.service';
 import {EventService} from './shared/services/event.service';
+import { HistoryEventsComponent } from './history-page/history-events/history-events.component';
+import { HistoryDetailComponent } from './history-page/history-detail/history-detail.component';
+import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component';
+import {FilterPipe} from './shared/pipe/filter.pipe';
 
 @NgModule({
   imports: [
@@ -37,7 +41,11 @@ import {EventService} from './shared/services/event.service';
     CurrencyCardComponent,
     AddEventComponent,
     AddCategoryComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    HistoryEventsComponent,
+    HistoryDetailComponent,
+    HistoryFilterComponent,
+    FilterPipe
   ],
   providers: [
     BillService,

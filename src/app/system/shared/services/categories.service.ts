@@ -17,4 +17,8 @@ export class CategoriesService {
   updateCategory(category: Category): Observable<any> {
     return this.httpClient.put(BaseApi.getUrl(`categories/${category.id}`), category);
   }
+
+  getCategoryById(id: number): Observable<any> {
+    return this.httpClient.get(BaseApi.getUrl(`categories/${id}`));
+  }
 }

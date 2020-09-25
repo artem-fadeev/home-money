@@ -5,6 +5,7 @@ export class MyEvent {
     public category: number,
     public date: Date,
     public description: string,
-    public id?: string
+    public id?: string,
+    public catName?: string
   ) {}
 }
