@@ -9,7 +9,9 @@
   </div>
 </div>
 <section class="section">
-  <div class="row text-center" *ngIf="!isLoaded">Loading...</div>
+  <div class="row text-center" *ngIf="!isLoaded">
+    <my-loader></my-loader>
+  </div>
   <div class="row" *ngIf="isLoaded">
     <my-bill-card [bill]="bill" [currency]="currency"></my-bill-card>
     <my-currency-card [currency]="currency"></my-currency-card>

@@ -5,11 +5,14 @@ import {User} from '../../shared/models/user.model';
 import {Message} from '../../shared/models/message.model';
 import {AuthService} from '../../shared/services/auth.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'my-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [fadeStateTrigger]
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
@@ -19,8 +22,11 @@ export class LoginComponent implements OnInit {
     private userService: UsersService,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private title: Title
+  ) {
+    title.setTitle('Вход в систему');
+  }
 
   ngOnInit() {
     this.message = new Message('danger', '');
@@ -30,6 +36,11 @@ export class LoginComponent implements OnInit {
           this.showMessage({
             text: 'Теперь вы можете залогиниться',
             type: 'success'});
+        } else if (params['accessDenied']) {
+          this.showMessage({
+            text: 'Для работы с системой вам нужно залогиниться',
+            type: 'warning'
+          });
         }
       });
     this.form = new FormGroup({
